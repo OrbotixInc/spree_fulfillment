@@ -1,7 +1,8 @@
-SpreeFulfillment is a spree extension to do fulfillment processing viawhen a
-shipment becomes ready.
+SpreeFulfillment is a spree extension to do fulfillment processing when a shipment becomes ready.
 
 This Gem has been forked from the original by wimm, to allow intergration with AtLast Fullfillment INC, as well as updates and improvements. While an attempt will be made to maintain the functionality with Amazon no promises are made.
+
+This Gem will suport only versions of Spree 1.0.0 and greater.
 
 Adds a state to the Shipment state machine called 'fulfilling'
 which acts as the transition between 'ready' and 'shipped'.  When a shipment is
@@ -20,27 +21,27 @@ the 'shipped' state and an email is sent to the customer.
 
 ```ruby
 gem 'whenever', :require => false      # if you want whenever to manage the cron job
-gem 'spree_fulfillment', :git => 'git://github.com/wimm/spree_fulfillment.git'
+gem 'spree_fulfillment', :git => 'git://github.com/inscore/spree_fulfillment.git'
 ```
 
 ### Create config/fulfillment.yml:
 
 ```yml
 development:
-  adapter: amazon
-  api_key: <YOUR AMAZON AWS API KEY>
-  secret_key: <YOUR AMAZON AWS SECRET KEY>
+  adapter: atlast
+  api_key: <YOUR ATLAST API KEY>
+  secret_key: <YOUR ATLAST AWS SECRET KEY>
   development_mode: true
 
 test:
-  adapter: amazon
-  api_key: <YOUR AMAZON AWS API KEY>
-  secret_key: <YOUR AMAZON AWS SECRET KEY>
+  adapter: atlast
+  api_key: <YOUR ATLAST API KEY>
+  secret_key: <YOUR ATLAST SECRET KEY>
 
 production:
-  adapter: amazon
-  api_key: <YOUR AMAZON AWS API KEY>
-  secret_key: <YOUR AMAZON AWS SECRET KEY>
+  adapter: atlast
+  api_key: <YOUR ATLAST API KEY>
+  secret_key: <YOUR ATLAST SECRET KEY>
 ```
 
 ### Create config/schedule.rb:
@@ -74,6 +75,5 @@ require 'active_fulfillment'
 Set the SKU code for your products to be equal to the Amazon fulfillment SKU code.
 
 
-----
-
+Copyright (c) 2012 Scot Inscore, released under the New BSD License
 Copyright (c) 2011 WIMM Labs, released under the New BSD License
