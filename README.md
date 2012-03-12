@@ -1,10 +1,12 @@
-SpreeFulfillment is a spree extension to do fulfillment processing via Amazon when a
+SpreeFulfillment is a spree extension to do fulfillment processing viawhen a
 shipment becomes ready.
 
-The extension adds an additional state to the Shipment state machine called 'fulfilling'
-which acts as the transition between 'ready' and 'shipped'.  When a shipment becomes
-'ready' it is eligible for fulfillment.  A rake task intended to be called from a cron
-job checks for ready shipments and initiates the fulfillment via the Amazon API.  If
+This Gem has been forked from the original by wimm, to allow intergration with AtLast Fullfillment INC, as well as updates and improvements. While an attempt will be made to maintain the functionality with Amazon no promises are made.
+
+Adds a state to the Shipment state machine called 'fulfilling'
+which acts as the transition between 'ready' and 'shipped'.  When a shipment is
+'ready' it is eligible for fulfillment.  A rake task called via a cron
+job checks for ready shipments and initiates the fulfillment.  If
 the fulfillment transaction succeeds, the shipment enteres the 'fulfilling' state.
 
 The cron job also queries Amazon for tracking numbers of any orders that are being
